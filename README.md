@@ -27,5 +27,5 @@ Asenna tarvittavat kirjastot seuraavalla komennolla: pip install pandas openpyxl
 Ohjelma ajetaan komennolla python main.py
 
 ## Mallin yksityiskohdat
- - **Suomen väestö**: LSTM-neuroverkko, joka hyödyntää useita omiansuuksia (syntyneet, kuolleet, muuttoliike jne.) väestörakenteiden ennustamiseen.
+ - **Suomen väestö**: LSTM-neuroverkko, joka hyödyntää useita ominaisuuksia (syntyneet, kuolleet, muuttoliike jne.) väestörakenteiden ennustamiseen.
  - **Kaupunkien väestö**: Polynomiregressio, joka kuvaa epälineaariisia kasvu- ja laskusuuntauksia.
