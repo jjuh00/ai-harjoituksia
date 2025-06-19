@@ -13,7 +13,7 @@ Omaisuudet:
 
 ## Aineistot
 Ohjelma hyödyntää neljää aineistoa Suomen väestörakenteesta:
-  1. Suurimpien kuntie väkiluku (1980-2023)
+  1. Suurimpien kuntien väkiluku (1980-2023)
   2. Väestö sukupuolen ja iän mukaan (1870-2075)
   3. Elävänä syntyneet ja kuolleet (1750-2023)
   4. Muuttoliike (2000-2023)
