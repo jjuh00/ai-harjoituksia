@@ -17,7 +17,7 @@ Ohjelma lataa hotelliarvosteluja sisältävän aineiston ja suorittaa sille moni
 Ohjelma hyödyntää TridAdvisor-hotelliarvosteluaineistoa. Aineiston lähde: [Trip Advisor Hotel Reviews](https://www.kaggle.com/datasets/andrewmvd/trip-advisor-hotel-reviews)
 
 ## Ohjelman ajaminen
-Seuraavat komennot ajetaan hakemistossa ai-harjoituksia/ai-harjoitus-2.
+Seuraavat komennot ajetaan hakemistossa ai-harjoituksia/ai-harjoitus-2.<br />
 Asenna tarvittavat kirjastot seuraavalla komennolla: pip install pandas nltk textblob scikit-learn numpy matplotlib seaborn
 
 Ohjelma ajetaan komennolla python main.py
