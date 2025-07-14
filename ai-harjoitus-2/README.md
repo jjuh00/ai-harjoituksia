@@ -13,8 +13,8 @@ Ohjelma lataa hotelliarvosteluja sisältävän aineiston ja suorittaa sille moni
   - TF-IDF-vektorointi ja KMeans-klusterointi
   - Visualisoinnit tuloksita (mm. avainsanat ja tunteet)
 
-## Aineisto
-Ohjelma hyödyntää TridAdvisor-hotelliarvosteluaineistoa. Aineiston lähde: [Trip Advisor Hotel Reviews](https://www.kaggle.com/datasets/andrewmvd/trip-advisor-hotel-reviews)
+## Viittaukset 
+[Alam, M. H., Ryu, W.-J., Lee, S., 2016. Joint multi-grain topic senti- ment: modeling semantic aspects for online reviews. Information Sci- ences 339, 206–223.](https://zenodo.org/records/1219899)
 
 ## Ohjelman ajaminen
 Seuraavat komennot ajetaan hakemistossa ai-harjoituksia/ai-harjoitus-2.<br />
