@@ -23,6 +23,6 @@ Asenna tarvittavat kirjastot seuraavalla komennolla: pip install pandas nltk tex
 Ohjelma ajetaan komennolla python main.py
 
 ## Mallin yksityiskohdat
-- **Tunneanalyysi**: TextBlob-tunneanalyysi, joka määrittelee tekstin polariteetin.
+- **Tunneanalyysi**: TextBlob-tunneanalyysi, joka määrittelee tekstin polariteetin
 - **Avainsanojen tunnistus**: NLTK:n POS-merkintöjen avulla valitaan substantiivit ja adjektiivit
 - **Klusterointi**: TF-IDF-vektorointi yhdistetty KMeans-algoritmiin
