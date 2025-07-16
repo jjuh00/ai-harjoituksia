@@ -5,7 +5,6 @@ Ohjelma esikäsittelee tekstit, suorittaa tunneanalyysin teksteistä, erittelee 
 klusteroi arvostelut ja luo visualisoinnit analyysin tuloksista.
 """
 
-import os
 import re
 import nltk
 import pandas as pd
@@ -21,22 +20,20 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 
-DATASET_FOLDER = "aineisto"
 DATASET_FILE = "tripadvisor_hotel_reviews.csv"
 
-def load_data(dataset_folder, dataset_file):
+def load_data(dataset_file):
     """
     Lataa hotelliarvostelut CSV-tiedostosta.
 
     Parametrit:
-        dataset_folder (str): Kansion polku, jossa CSV-tiedosto sijaitsee
         dataset_file (str): CSV-tiedoston nimi
 
     Palauttaa:
         DataFrame: Ladattu aineisto, joka sisältää hotelliarvosteluiden sarakkeet
     """
     try:
-        df = pd.read_csv(os.path.join(dataset_folder, dataset_file))
+        df = pd.read_csv(dataset_file)
         df = df.dropna()
         print(f"Aineisto ladattu onnistuneesti. Aineisto sisältää {len(df)} arvostelua")
         print(f"Sarakkeet: {list(df.columns)}")
@@ -325,7 +322,7 @@ def print_summary(df, cluster_labels, keywords, cluster_keywords):
 
 def main():
     # Ladataan aineisto
-    df = load_data(DATASET_FOLDER, DATASET_FILE)
+    df = load_data(DATASET_FILE)
     if df is None:
         return
     
