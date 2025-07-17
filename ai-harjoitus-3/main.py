@@ -144,7 +144,7 @@ def analyze_bias(predictor, model_name="Satunnaismetsä"):
         model_name (str): Mallin nimi, jota käytetään vinouman analysointiin
 
     Palauttaa:
-        dict: Vinouman analyysin tulokset, jotka sisältävät demografisen vinouman ja tasapainotetun vinouman
+        dict: Vinouman analyysin tulokset
     """
     # Haetaan ennustukset ja herkät ominaisuudet
     predictions, sensitive_features_test, y_test = predictor.get_model_predictions_for_bias_analysis(model_name)
