@@ -38,7 +38,7 @@ def load_original_data():
     try:
         data = pd.read_csv("StudentsPerformance.csv")
         # Luodaan pass-sarake (sama logiikka kuin predictor.py:ssä)
-        avg_score = (data["math score"] + data["reading score"] + data["writing score"])
+        avg_score = (data["math score"] + data["reading score"] + data["writing score"]) / 3
         data["pass"] = (avg_score >= 50).astype(int)
         return data
     except FileNotFoundError:
