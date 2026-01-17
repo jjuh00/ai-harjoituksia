@@ -18,7 +18,7 @@ Ohjelman kulku:
 ## Ohjelman ajaminen
 Siirry hakemistoon ai-harjoitus-4 cd-komennolla.<br />
 Tarvittaessa asenna Python 3.14 ja pip.
-Asenna tarvittavat kirjastot komennolla ```pip install -r requirements```.
+Asenna tarvittavat kirjastot komennolla ```pip install -r requirements.txt```.
 Ohjelma käynnistetään komennolla ```python main.py```.
 
 ## Ohjelman yksityiskohdat
@@ -31,7 +31,7 @@ Ohjelma käynnistetään komennolla ```python main.py```.
 
 ## Rajoitukset ja huomiot
 
- - Kysymkysen tulee esittää englanniksi, sillä kielimalli tukee englantia.
+ - Kysymys tulee esittää englanniksi, sillä kielimalli tukee englantia.
  - Jos käytettävällä laiteella on Nvidia-näytönohjain, kannattaa asentaa CUDA, jonka avulla ohjelma on huomattavasti suorituskykyisempi.
  - PDF-dokumenttien tulee olla tekstipohjaisia (eli ne eivät saa sisältää kuvia).
  - Ensimmäinen käynnistys voi kestää jonkin aikaa, kun mallit ladataan HuggingFacesta.
