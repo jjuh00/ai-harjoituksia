@@ -1,0 +1,9 @@
+{
+    "chunk_size": 1012,
+    "chunk_overlap": 100,
+    "top_k_chunks": 9,
+    "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "llm_model_name": "google/flan-t5-base",
+    "max_context_length": 3584,
+    "data_directory": "data"
+}
