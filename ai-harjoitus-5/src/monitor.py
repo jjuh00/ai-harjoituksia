@@ -39,8 +39,8 @@ PERFORMANCE_DROP_THRESHOLD = 0.05 # Suorituskyvyn lasku > 5% -> hälytys
 NUMERIC_FEATURES = ["tenure", "MonthlyCharges", "TotalCharges", "SeniorCitizen"]
 CATEGORICAL_FEATURES = [
     "gender", "Partner", "Dependents", "PhoneService", "MultipleLines", "InternetService",
-    "OnlineSecurity", "OnlineBackup", "DeviceProtection", "DeviceProtection", "TechSupport",
-    "StreamingTV", "StreamingMovies", "Contract", "PaperlessBilling", "PaymentMethod"
+    "OnlineSecurity", "OnlineBackup", "DeviceProtection", "TechSupport", "StreamingTV", 
+    "StreamingMovies", "Contract", "PaperlessBilling", "PaymentMethod"
 ]
 TARGET = "Churn"
 
