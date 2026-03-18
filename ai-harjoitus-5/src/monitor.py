@@ -16,14 +16,9 @@ from sklearn.metrics import (
     accuracy_score, f1_score, precision_score, recall_score, roc_auc_score
 )
 from sklearn.model_selection import train_test_split
+from train import MODELS_DIR, DATA_DIR, NUMERIC_FEATURES, CATEGORICAL_FEATURES, TARGET
 
 # Polut
-_SRC_DIR = os.path.dirname(os.path.abspath(__file__))
-_PROJECT_ROOT = os.path.dirname(_SRC_DIR)
-
-DATA_DIR = os.path.join(_PROJECT_ROOT, "data", "WA_FN-UseC_-Telco-Customer-Churn.csv")
-MODELS_DIR = os.path.join(_PROJECT_ROOT, "models")
-
 MODEL_PATH = os.path.join(MODELS_DIR, "model.pkl")
 STATS_PATH = os.path.join(MODELS_DIR, "reference_stats.json")
 REF_PREDS_PATH = os.path.join(MODELS_DIR, "reference_predictions.npy")
@@ -34,15 +29,6 @@ PSI_WARNING_THRESHOLD = 0.1 # PSI >= 0.10 -> lievä muutos
 PSI_ALERT_THRESHOLD = 0.20 # PSI >= 0.20 -> merkittävä muutos
 KS_PVALUE_THRESHOLD = 0.05 # p-arvo < 0.05 -> tilastollisesti merkitsevä ajautuminen
 PERFORMANCE_DROP_THRESHOLD = 0.05 # Suorituskyvyn lasku > 5% -> hälytys
-
-# Ominaisuudet
-NUMERIC_FEATURES = ["tenure", "MonthlyCharges", "TotalCharges", "SeniorCitizen"]
-CATEGORICAL_FEATURES = [
-    "gender", "Partner", "Dependents", "PhoneService", "MultipleLines", "InternetService",
-    "OnlineSecurity", "OnlineBackup", "DeviceProtection", "TechSupport", "StreamingTV", 
-    "StreamingMovies", "Contract", "PaperlessBilling", "PaymentMethod"
-]
-TARGET = "Churn"
 
 class PSICalculator:
     """
@@ -97,7 +83,7 @@ class PSICalculator:
         current_counts, _ = np.histogram(current_clean, bins=bin_edges)
         current_proportions = current_counts / (current_counts.sum() + self.eps)
 
-        return self._psi_formula(reference_proportions, current_proportions)
+        return self.psi_formula(reference_proportions, current_proportions)
     
     def calculate_categorical_psi(self, feature_name, current_series):
         """
@@ -139,7 +125,7 @@ class PSICalculator:
         reference_proportions = reference_proportions / (reference_proportions.sum() + self.eps)
         current_proportions = current_proportions / (current_proportions.sum() + self.eps)
 
-        return self._psi_formula(reference_proportions, current_proportions)
+        return self.psi_formula(reference_proportions, current_proportions)
     
     def calculate_all_psi(self, current_df, numeric_features, categorical_features):
         """
@@ -165,7 +151,7 @@ class PSICalculator:
 
         return results
     
-    def _psi_formula(self, expected, actual):
+    def psi_formula(self, expected, actual):
         """
         Laskee PSI-arvon kaavalla PSI = sum((actual - expected) * ln(actual / expected)).
 
@@ -179,9 +165,7 @@ class PSICalculator:
         # Lisätään eps molempiin estämään log(0) ja nollalla jakaminen
         expected = np.where(expected == 0, self.eps, expected)
         actual = np.where(actual == 0, self.eps, actual)
-
-        psi_value = np.sum((actual - expected) * np.log(actual / expected))
-        return float(psi_value)
+        return float(np.sum((actual - expected) * np.log(actual / expected)))
     
 class KSTester:
     """
@@ -235,7 +219,7 @@ class KSTester:
                     "drift_detected": False, "error": f"Ominaisuudella {feature_name} ei ole riittävästi arvoja KS-testin suorittamiseksi"}
         
         # Luodaan referenssinäytteet histogrammijakaumasta
-        refrence_samples = self._reconstruct_samples_from_histogram(reference_info["histogram"])
+        refrence_samples = self.reconstruct_samples_from_histogram(reference_info["histogram"])
 
         ks_stat, p_value = stats.ks_2samp(refrence_samples, current_clean)
 
@@ -262,7 +246,7 @@ class KSTester:
                 results[feature] = self.perform_feature_ks_test(feature, current_df[feature])
         return results
     
-    def _reconstruct_samples_from_histogram(self, histogram):
+    def reconstruct_samples_from_histogram(self, histogram):
         """
         Luo likimääräisiä näytteitä histogrammidatasta käyttämällä pylväiden keskilukuja
         osuuksiensa mukaan painotettuina.
