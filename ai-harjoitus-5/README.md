@@ -50,7 +50,7 @@ python run_all.py --no-dashboard
 
 - Samaa aineistoa käytetään myös mallin arviointiin sekä seurantaan, mutta niihin käytetään satunnaisnäytteitä
 - Esikäsittely: Skaalaus StandardScalerilla, enkoodaus One-Hot Encodingilla
-- Malli: GradienBoostingClassifier
+- Malli: GradientBoostingClassifier
 - Mallin arviointi: Tarkkuus, sisäinen tarkkuus, herkkys, f1-pisteet ja ROC-AUC
 - Monitorointi: Data-ajautuminen
   - PSI
