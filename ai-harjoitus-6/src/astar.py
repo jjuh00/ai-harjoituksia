@@ -5,13 +5,8 @@ A* laajentaa Dijkstraa lisäämällä heuristiikan h(s), joka arvioi jäljellä 
 vähentää tutkittujen solmujen määrää, kunhan heuristiikka on ylärajaton.
 """
 
-from typing import Callable
-
 from neighbors import get_neighbors
 from search_core import best_first_search
-
-Point = tuple[int, int]
-HeuristicFn = Callable[[Point, Point], float]
 
 def astar(grid, start, goal, heuristic, allow_diagonal = False):
     """
@@ -19,9 +14,9 @@ def astar(grid, start, goal, heuristic, allow_diagonal = False):
 
     Parametrit:
         grid (grid.Grid): Ruudukko, jolla haku suoritetaan
-        start (grid.Point): Lähtöpisteen koordinaatit (x,y)
-        goal (Point): Päätepisteen koordinaatit (x,y)
-        heuristic (HeuristicFn): Heuristiikkafunktio (piste, piste) -> arvioitu etäisys.
+        start (tuple[int, int]): Lähtöpisteen koordinaatit (x,y)
+        goal (tuple[int, int]): Päätepisteen koordinaatit (x,y)
+        heuristic (Callable[[tuple[int, int], tuple[int, int]], float]): Heuristiikkafunktio (piste, piste) -> arvioitu etäisys.
         allow_diagonal (bool): Jos True, sallitaan 8-suuntainen liikkuminen
 
     Palauttaa:
