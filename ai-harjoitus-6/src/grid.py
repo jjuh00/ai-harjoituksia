@@ -39,9 +39,9 @@ class Grid:
     """
     width: int
     height: int
-    cells = field(default_factory=list)
-    start = None
-    goal = None
+    cells: list[list[str]] = field(default_factory=list)
+    start: tuple[int, int] | None = None
+    goal: tuple[int, int] | None = None
 
     def in_bounds(self, x, y):
         """
@@ -96,7 +96,7 @@ class Grid:
         """
         Jäsentää ruudukon monirivisestä merkkijonosta.
 
-        Params:
+        Parametrit:
             text (str): Ruudukon tekstiesitys, rivit erotettu '\\n'-merkillä.
                         Tyhjät rivit tekstin alusta ja lopusta ohitetaan
 
@@ -117,7 +117,7 @@ class Grid:
         width = len(lines[0])
         for i, line in enumerate(lines):
             if len(line) != width:
-                raise ValueError(f"Rivi {i} on eri pituinen {len(line)} kuin ensimmäinen rivi ({width}). Ruudukon on oltava suorakulmainen.")
+                raise ValueError(f"Rivi {i} on eri pituinen ({len(line)}) kuin ensimmäinen rivi ({width}). Ruudukon on oltava suorakulmainen.")
             
         height = len(lines)
         cells = [list(line) for line in lines]
