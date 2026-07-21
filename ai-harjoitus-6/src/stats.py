@@ -71,7 +71,7 @@ def format_comparison_table(runs):
     for run in runs:
         cost_str = f"{run.result.total_cost:.3f}" if run.result.total_cost is not None else "-"
         rows.append([
-            run.name, "Kyllä" if run.path.found else "Ei",
+            run.name, "Kyllä" if run.path_found else "Ei",
             cost_str, str(run.result.nodes_expanded),
             str(run.result.nodes_visited), f"{run.elapsed_seconds * 1000:.3f}"
         ])
