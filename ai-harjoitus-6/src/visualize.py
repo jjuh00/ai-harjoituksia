@@ -39,7 +39,7 @@ def render_path(grid, path, visited = None):
     # Kopioidaan solut, jotta alkuperäistä ruudukkoa ei muokata
     display = [row[:] for row in grid.cells]
 
-    path_set = set[tuple[int, int]] = set(path) if path else set()
+    path_set = set(path) if path else set()
 
     if visited:
         for (vx, vy) in visited:
@@ -85,8 +85,8 @@ def render_path_png(grid, path, output_path, visited = None):
     color_map = {
         "#": "#2b2b2b", # seinä
         ".": "#f5f5f5", # vapaa
-        "^": "#5b7f5b", # raskas maasto
-        ",": "#e0c68a", # kevyt maasto
+        "^": "#304230", # raskas maasto
+        ",": "#dfca99", # kevyt maasto
         "A": "#f5f5f5",
         "L": "#f5f5f6"
     }
@@ -110,10 +110,10 @@ def render_path_png(grid, path, output_path, visited = None):
 
     if grid.start:
         ax, ay = grid.start
-        axis.add_patch(patches.Rectangle((ax, grid.height - 1 - ay), 1, 1, facecolor="#2a9d8f"))
+        axis.add_patch(patches.Rectangle((ax, grid.height - 1 - ay), 1, 1, facecolor="#1ccfba"))
     if grid.goal:
         lx, ly = grid.goal
-        axis.add_patch(patches.Rectangle((lx, grid.height - 1 - ly), 1, 1, facecolor="#e76f51"))
+        axis.add_patch(patches.Rectangle((lx, grid.height - 1 - ly), 1, 1, facecolor="#d95a3a"))
 
     axis.set_xlim(0, grid.width)
     axis.set_ylim(0, grid.height)
