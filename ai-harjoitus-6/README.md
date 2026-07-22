@@ -24,7 +24,7 @@ python src/main.py --satunnainen 30 30 --siemenluku 42 --heuristiikat euklidinen
 
 CSV-verkkotila:
 ```bash
-python src/main.py --solmut ./data/nodes.csv --karet ./data/edges.csv --lahto A --maali C
+python src/main.py --solmut ./data/nodes.csv --kaaret ./data/edges.csv --lahto A --maali C
 ```
 
 Kaikki parametrit ja niiden selitykset:
